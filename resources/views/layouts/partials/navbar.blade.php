@@ -1,19 +1,19 @@
 <nav class="navbar bg-danger navbar-expand-lg ">
     <div class="container">
-      <a class="navbar-brand text-white" href="/">Navbar</a>
+      <a class="navbar-brand text-white" href="/">Belajar Laravel</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-white" aria-current="page" href="/">Home</a>
+            <a class="nav-link {{ Request::is('/') ? 'text-dark' : 'text-white' }}" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/project">Project</a>
+            <a class="nav-link {{ Request::is('project') ? 'text-dark' : 'text-white' }}" href="/project">Project</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="/kategori">Kategori</a>
+            <a class="nav-link {{ Request::is('kategori') ? 'text-dark' : 'text-white' }}" href="/kategori">Kategori</a>
           </li>
         </ul>
         
@@ -35,7 +35,7 @@
         </li>
           @else
           <li class="nav-item">
-            <a class="nav-link text-white" href="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+            <a class="nav-link {{ Request::is('login') ? 'text-dark' : 'text-white' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
           </li>
           @endauth
         </ul>
