@@ -16,11 +16,30 @@
             <a class="nav-link text-white" href="/kategori">Kategori</a>
           </li>
         </ul>
+        
         <ul class="navbar-nav ms-auto ">
+          @auth
+        <li class="nav-item dropdown">
+          <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Hai {{ auth()->user()->name }} <i class="bi bi-heart"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-columns"></i> Dashboard</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <form action="/logout" method="POST">
+              @csrf
+              <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Logout</button>
+            
+            </form>
+          </ul>
+        </li>
+          @else
           <li class="nav-item">
             <a class="nav-link text-white" href="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
           </li>
+          @endauth
         </ul>
+        
     </div>
   </nav>
 </div>
